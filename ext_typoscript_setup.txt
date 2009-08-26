@@ -1,0 +1,1 @@
+plugin.tx_metafeedit_pi1.metafeedit.general.list.userFunc_alterSortTabs = EXT:meta_extras/class.tx_metaextras_user_alterSortTabs.php:user_alterSortTabs

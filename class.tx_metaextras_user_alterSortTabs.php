@@ -1,13 +1,14 @@
 <?php
 
-function user_alterSortTabs( &$param, $x) {
+function user_alterSortTabs( &$param, $conf) {
 $fN =  $param['fN'];
 $table = $param['table'];
 $sortTab = $param['sortTab'];
 $sortAux = $param['sortAux'];
-$conf = $x;
+
 //echo '<br />--yes:'.$fN;
-//if ($conf) {
+
+if ($param['forceEmptyOption']){
   foreach ($sortTab as $key => $value) {
     $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery('COUNT(uid)',
     $table, 'FIND_IN_SET('.$value['uid'].','.$fN.') AND NOT deleted '.
@@ -26,9 +27,9 @@ $conf = $x;
 
 $param['sortTab'] =$sortTab ;
 $param['sortAux'] =$sortAux ;
-
+}
 return ;
-//}
+
 }
 
 ?>
